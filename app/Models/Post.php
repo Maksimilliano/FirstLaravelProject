@@ -23,7 +23,7 @@ class Post extends Model
     //    protected $keyType = 'string';
     //    public $timestamps = false;
    // protected $attributes = [ 'content'=> 'Lorem ipsum...',];
-    protected $fillable = ['title', 'content', 'id'];
+    protected $fillable = ['title', 'content', 'rubric_id'];
 
     public function rubric(){
         return $this->belongsTo(Rubric::class);
