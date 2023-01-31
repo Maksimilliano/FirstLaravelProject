@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Validator;
 class HomeController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
        // DB::insert("INSERT INTO posts (title, content) VALUES (?, ?)", ['Article 5', 'Lorem ipsum 5']);
 
@@ -135,6 +135,21 @@ class HomeController extends Controller
             ->get();
         dd($data); */
 
+        //dump($request->session()->all());
+        $request->session()->put('test', 'Test Value');
+        session(['cart'=>[
+            ['id'=> 1, 'title'=> 'Product1'],
+            ['id'=> 2, 'title'=> 'Product2'],
+        ]]);
+        //dump(session('test'));
+        //dump(session('cart') [1] ['title']);
+        //dump($request->session()->get('cart') [0] ['title']);
+        $request->session()->push('cart', ['id'=> 3, 'title'=> 'Product3']);
+        //dump($request->session()->pull('test'));
+        //$request->session()->forget(['test', 'Test Value']);
+        //$request->session()->flush();
+        dump(session()->all());
+
         $posts = Post::orderBy('id', 'desc')->get();
         $title = 'Home Page';
 
@@ -181,6 +196,7 @@ class HomeController extends Controller
             $validator = Validator::make($request->all(), $rules, $messages)->validate();*/
 
             Post::create($request->all());
+            $request->session()->flash('success', 'Данные сохранены!');
         return redirect()->route('home');
 
         }
