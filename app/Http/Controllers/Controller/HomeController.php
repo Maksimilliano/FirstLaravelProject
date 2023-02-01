@@ -9,6 +9,8 @@ use App\Models\Post;
 use App\Models\Rubric;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -136,19 +138,39 @@ class HomeController extends Controller
         dd($data); */
 
         //dump($request->session()->all());
-        $request->session()->put('test', 'Test Value');
+        /*$request->session()->put('test', 'Test Value');
         session(['cart'=>[
             ['id'=> 1, 'title'=> 'Product1'],
             ['id'=> 2, 'title'=> 'Product2'],
-        ]]);
+        ]]);*/
         //dump(session('test'));
         //dump(session('cart') [1] ['title']);
         //dump($request->session()->get('cart') [0] ['title']);
-        $request->session()->push('cart', ['id'=> 3, 'title'=> 'Product3']);
+        //$request->session()->push('cart', ['id'=> 3, 'title'=> 'Product3']);
         //dump($request->session()->pull('test'));
         //$request->session()->forget(['test', 'Test Value']);
         //$request->session()->flush();
-        dump(session()->all());
+        //dump(session()->all());
+        //Cookie::queue('test', 'Test cookie', 5);
+        //Cookie::queue(Cookie::forget('test'));
+        //dump(Cookie::get('test'));
+        //dump($request->cookie('test'));
+
+        //Cache::put('key', 'Value', 300);
+        //Cache::forget('key');
+        //dump(Cache::get('key'));
+        //Cache::put('key', 'Value', 300);
+        //Cache::flush();
+        /*dump(Cache::pull('key'));
+        dump(Cache::get('key'));*/
+
+
+        /*if (Cache::has('posts')){
+            $posts = Cache::get('posts');
+        }else{
+            $posts = Post::orderBy('id', 'desc')->get();
+            Cache::put('posts', $posts);
+        }*/
 
         $posts = Post::orderBy('id', 'desc')->get();
         $title = 'Home Page';

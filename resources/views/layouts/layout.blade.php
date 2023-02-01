@@ -7,7 +7,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.101.0">
     <title>@section('title')MySite @show</title>
-
+    <link href="./public/main.css" rel="stylesheet">
 
 
 
@@ -17,7 +17,7 @@
           integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="/css/main.css" rel="stylesheet">
+
 </head>
 <body>
 
