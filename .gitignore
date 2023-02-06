@@ -16,3 +16,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/public/css/styles.css
+/public/js/scripts.js
+/public/img/sea.jpg
+/public/img/bay.jpg
