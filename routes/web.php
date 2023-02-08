@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Controller\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Test\TestController;
@@ -115,6 +116,8 @@ Route::post('/store', [HomeController::class, 'store'])->name('posts.store');
 
 Route::get('/page/about', [PageController::class, 'show'])->name('page.about');
 
+//Route::get('/send', [ContactController::class, 'send']);
 
+Route::match(['get', 'post'], '/send', [ContactController::class, 'send']);
 
 
