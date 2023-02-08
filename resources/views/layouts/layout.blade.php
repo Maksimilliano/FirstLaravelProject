@@ -49,8 +49,13 @@
                 <strong>Album</strong>
             </a>
 
-            <a href="{{route('posts.create')}}">Create</a>
+            <a href="{{route('posts.create')}}" class="navbar-brand d-flex align-items-center">Create</a>
 
+            <a href="{{ route('register.create') }}" class="navbar-brand d-flex align-items-center">Registration</a>
+
+            {{--@php
+            dump(Auth::check())
+            @endphp--}}
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
                     aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

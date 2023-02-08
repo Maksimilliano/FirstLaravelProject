@@ -4,6 +4,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Controller\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Test\TestController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -119,5 +120,8 @@ Route::get('/page/about', [PageController::class, 'show'])->name('page.about');
 //Route::get('/send', [ContactController::class, 'send']);
 
 Route::match(['get', 'post'], '/send', [ContactController::class, 'send']);
+
+Route::get('/register', [UserController::class, 'create'])->name('register.create');
+Route::post('/register', [UserController::class, 'store'])->name('register.store');
 
 
