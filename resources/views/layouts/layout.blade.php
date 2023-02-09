@@ -49,13 +49,34 @@
                 <strong>Album</strong>
             </a>
 
-            <a href="{{route('posts.create')}}" class="navbar-brand d-flex align-items-center">Create</a>
+            {{--@if(auth()->check())
+                <a href="#">{{ auth()->user()->name }}</a>
+                <a href="{{ route('logout') }}" class="navbar-brand d-flex align-items-center">Logout</a>
+            @else
+                <a href="{{ route('register.create') }}" class="navbar-brand d-flex align-items-center">Registration</a>
 
-            <a href="{{ route('register.create') }}" class="navbar-brand d-flex align-items-center">Registration</a>
+                <a href="{{ route('login.create') }}" class="navbar-brand d-flex align-items-center">Login</a>
+            @endif--}}
 
-            {{--@php
-            dump(Auth::check())
-            @endphp--}}
+            <a href="{{route('posts.create')}}" class="navbar-brand d-flex align-items-center">Create Post</a>
+
+            {{--<a href="{{ route('register.create') }}" class="navbar-brand d-flex align-items-center">Registration</a>
+
+            <a href="{{ route('login.create') }}" class="navbar-brand d-flex align-items-center">Login</a>
+
+            <a href="{{ route('logout') }}" class="navbar-brand d-flex align-items-center">Logout</a>--}}
+
+            @auth
+                <a href="#">{{ auth()->user()->name }}</a>
+                <a href="{{ route('logout') }}" class="navbar-brand d-flex align-items-center">Logout</a>
+            @endauth
+
+            @guest
+                <a href="{{ route('register.create') }}" class="navbar-brand d-flex align-items-center">Registration</a>
+
+                <a href="{{ route('login.create') }}" class="navbar-brand d-flex align-items-center">Login</a>
+            @endguest
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
                     aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
