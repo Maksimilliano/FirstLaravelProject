@@ -9,7 +9,7 @@
 @section('content')
 
     <div class="container">
-        <form method="post" action="{{ route('register.store') }}">
+        <form method="post" action="{{ route('register.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="name">Name</label>
@@ -29,6 +29,11 @@
             <div class="form-group">
                 <label for="password_confirmation">Confirm Password</label>
                 <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
+            </div>
+
+            <div class="form-group">
+                <label for="avatar">Avatar</label>
+                <input type="file" class="form-control-file" id="avatar" name="avatar">
             </div>
 
             <button class="btn btn-primary" type="submit">Send</button>

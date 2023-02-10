@@ -67,7 +67,11 @@
             <a href="{{ route('logout') }}" class="navbar-brand d-flex align-items-center">Logout</a>--}}
 
             @auth
-                <a href="#">{{ auth()->user()->name }}</a>
+                <a href="#" class="navbar-brand d-flex align-items-center">{{ auth()->user()->name }}
+                @if(auth()->user()->avatar)
+                        <img class="rounded float-start" src="{{ asset('storage/' .auth()->user()->avatar) }}" alt="avatar" height="40">
+                @endif
+                </a>
                 <a href="{{ route('logout') }}" class="navbar-brand d-flex align-items-center">Logout</a>
             @endauth
 
