@@ -67,7 +67,8 @@
                                 </div>
                                 <small class="text-muted">
                                     {{--{{ $post->created_at }}--}}
-                                    {{ $post->getPostDate() }}
+                                    {{--{{ $post->getPostDate() }}--}}
+                                    {{ $post->created_at->format('d.m.Y') }}
                                 </small>
                             </div>
                         </div>
