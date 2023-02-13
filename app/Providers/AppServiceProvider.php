@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Rubric;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\View;
@@ -32,6 +33,6 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('layouts.footer', function ($view){
             $view->with('rubrics', Rubric::all());
         });
-
+        Paginator::useBootstrapFour();
     }
 }
