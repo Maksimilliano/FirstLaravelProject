@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
@@ -173,6 +174,8 @@ class HomeController extends Controller
         }*/
 
         $posts = Post::orderBy('created_at', 'desc')->paginate(3);
+        /* Log::warning($posts);
+        \Debugbar::warning($posts);*/
         $title = 'Home Page';
 
         return view('home', compact('title', 'posts'));
