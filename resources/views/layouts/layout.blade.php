@@ -33,6 +33,7 @@
                     <ul class="list-unstyled">
                         <li><a href="{{route('home')}}" class="text-white">Home</a></li>
                         <li><a href="{{route('page.about')}}" class="text-white">About</a></li>
+                        <li><a href="{{ route('mail.send') }}" class="text-white">Contact us</a></li>
                     </ul>
                 </div>
             </div>

@@ -120,7 +120,7 @@ Route::get('/page/about', [PageController::class, 'show'])->name('page.about');
 
 //Route::get('/send', [ContactController::class, 'send']);
 
-Route::match(['get', 'post'], '/send', [ContactController::class, 'send']);
+Route::match(['get', 'post'], '/send', [ContactController::class, 'send'])->name('mail.send');
 
 Route::group(['middleware'=> 'guest'], function (){
     Route::get('/register', [UserController::class, 'create'])->name('register.create');
